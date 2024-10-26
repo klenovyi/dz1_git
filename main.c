@@ -5,6 +5,8 @@ int main() {
     int number;
     printf("DEV1 \n");
     number = 0;
+    // NEW INFORMATION IN FILE
+    printf("DEV2 \n"); 
     printf("Input number to find factorial of this number: ");
     scanf("%d", &number);
 
