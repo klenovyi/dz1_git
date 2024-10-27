@@ -17,7 +17,7 @@ unsigned long long factorial(int n) {
 
     }
     // NEW INFORMATION IN FILE
-    printf("DEV1 \n");
+    printf("DEV2 \n");
     return result;
 }
 
