@@ -3,10 +3,11 @@
 
 int main() {
     int number;
-    printf("DEV1 \n");
-    number = 0;
+    printf("DEV3 \n");
+    number = 1;
     // NEW INFORMATION IN FILE
-    printf("DEV1 \n"); 
+    printf("DEV1 \n");
+    printf("DEV3 \n"); 
     printf("Input number to find factorial of this number: ");
     scanf("%d", &number);
 
