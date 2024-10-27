@@ -6,7 +6,7 @@ int main() {
     printf("DEV1 \n");
     number = 0;
     // NEW INFORMATION IN FILE
-    printf("DEV2 \n"); 
+    printf("DEV1 \n"); 
     printf("Input number to find factorial of this number: ");
     scanf("%d", &number);
 
@@ -18,5 +18,6 @@ int main() {
 
         printf("Факториал %d равен %llu\n", number, result);
     }
+    printf("DEV1 \n");
     return 0;
 }
