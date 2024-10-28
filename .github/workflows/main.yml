@@ -17,12 +17,13 @@ jobs:
         run: make main.o
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v4
       - name: Build test_factorial.o
         run: make test_factorial.o
       - name: Run tests
-        run: ./test_factorial.o    
+        run: make test  
   executable:
     runs-on: ubuntu-latest
     needs: build

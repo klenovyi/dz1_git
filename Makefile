@@ -1,4 +1,4 @@
-# Определяем компилятор и флаги
+#  Определяем компилятор и флаги
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
@@ -21,9 +21,12 @@ main.o: main.c factorial.h
 factorial.o: factorial.c factorial.h
 	$(CC) $(CFLAGS) -c factorial.c
 
-test_factorial.o: test_factorial.c factorial.h
+test_factorial.o: test_factorial.c
 	 $(CC) $(CFLAGS) -c test_factorial.c
 
+test: test_factorial.o factorial.o
+	$(CC) $(CFLAGS) test_factorial.o factorial.o -o test
+	./test
 # Правило для очистки временных файлов
 clean:
 	rm -f $(OBJECTS) $(TARGET)
