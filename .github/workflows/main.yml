@@ -12,9 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build factorial.o
-        run: gcc -c factorial.c -o factorial.o
+        run: make factorial.o
       - name: Build main.o
-        run: gcc -c main.c -o main.o
+        run: make main.o
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build test_factorial.o
+        run: make test_factorial.o
+      - name: Run tests
+        run: ./test_factorial.o    
   executable:
     runs-on: ubuntu-latest
     needs: build

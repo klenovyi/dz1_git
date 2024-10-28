@@ -21,6 +21,9 @@ main.o: main.c factorial.h
 factorial.o: factorial.c factorial.h
 	$(CC) $(CFLAGS) -c factorial.c
 
+test_factorial.o: test_factorial.c factorial.h
+	 $(CC) $(CFLAGS) -c test_factorial.c
+
 # Правило для очистки временных файлов
 clean:
 	rm -f $(OBJECTS) $(TARGET)
