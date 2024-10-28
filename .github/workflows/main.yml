@@ -26,9 +26,22 @@ jobs:
         run: make test  
   executable:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, test]
     steps:
       - name: "Download files to ubuntu"
         uses: actions/checkout@v4
       - name: Link executable
         run: make factorial_program
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Doxygen
+        run: sudo apt-get update && sudo apt-get install doxygen
+      - name: Generate Documentation
+        run: doxygen Doxyfile 
+      - name: Upload documentation to GitHub Pages
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: html # (папка с сгенерированной документацией)
