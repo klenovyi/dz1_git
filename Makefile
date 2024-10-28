@@ -1,4 +1,4 @@
-#  Определяем компилятор и флаги
+
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
@@ -21,12 +21,21 @@ main.o: main.c factorial.h
 factorial.o: factorial.c factorial.h
 	$(CC) $(CFLAGS) -c factorial.c
 
+# Определяем целевые файлы для тестов 
+TEST_TARGET = test_program
+TEST_OBJECTS = test_factorial.o factorial.o
+
+# Правило для компиляции тестов
 test_factorial.o: test_factorial.c
 	 $(CC) $(CFLAGS) -c test_factorial.c
 
-test: test_factorial.o factorial.o
-	$(CC) $(CFLAGS) test_factorial.o factorial.o -o test
-	./test
+# правило для сборки тестов 
+$(TEST_TARGET): $(TEST_OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+test: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
 # Правило для очистки временных файлов
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJECTS) $(TARGET) $(TEST_TARGET) $(TEST_OBJECTS)
