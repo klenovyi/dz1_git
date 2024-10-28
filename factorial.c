@@ -2,7 +2,7 @@
 
 // Реализация функции для вычисления факториала
 unsigned long long factorial(int n) {
-    printf("DEV2 \n");
+    
     if (n < 0) {
         return 0; // Факториал отрицательного числа не определен
     }
@@ -16,8 +16,7 @@ unsigned long long factorial(int n) {
         result *= i;
 
     }
-    // NEW INFORMATION IN FILE
-    printf("DEV2 \n");
+    
     return result;
 }
 
