@@ -19,7 +19,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: objects
-          path: obj 
+          path: .
   test:
     runs-on: ubuntu-latest
     needs: build
@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: exec
-          path: bin
+          path: .
   build_docs:
     runs-on: ubuntu-latest
     steps:
@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: html # (папка с сгенерированной документацией)
+          path: html
   deploy:
     runs-on: ubuntu-latest
     needs: [build, executable, build_docs]
@@ -64,11 +64,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: objects
+          path: ./obj
 
       - name: Get build executable files
         uses: actions/download-artifact@v3
         with:
           name: exec
+          path: ./bin
 
       - name: Get build docs
         uses: actions/download-artifact@v3
