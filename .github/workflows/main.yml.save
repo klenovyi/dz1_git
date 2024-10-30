@@ -29,16 +29,7 @@ jobs:
         run: make test_factorial.o
       - name: Run tests
         run: make test  
-      - name: Merge PR (if all tests pass)
-        if: success()
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-        run: |
-          git config user.name "klenovyi"
-          git config user.email "siropchyk17@gmail.com"
-          git checkout main  # Переключаемся на ветку main
-          git merge ${{ github.event.pull_request.head.ref }}  # Слияние с development
-          git push origin main  # Отправка изменений на GitHub
+
   executable:
     runs-on: ubuntu-latest
     needs: [build, test]
